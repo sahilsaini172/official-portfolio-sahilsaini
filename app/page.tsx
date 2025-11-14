@@ -1,4 +1,5 @@
 "use client";
+import { animate, cubicBezier } from "animejs";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -10,8 +11,16 @@ export default function Home() {
     const handleScroll = () => {
       // Change class after scrolling 100px
       if (window.scrollY > 100) {
+        animate("#blob", {
+          opacity: { to: 0, duration: 500, delay: 0 },
+          ease: cubicBezier(0.7, 0.1,0.5,0.9)
+        });
         setIsScrolled(true);
-      } else {
+      } else if (window.scrollY < 100) {
+        animate("#blob", {
+          opacity: { to: 100, duration: 500, delay: 0 },
+          ease: cubicBezier(0.7, 0.1,0.5,0.9)
+        });
         setIsScrolled(false);
       }
     };
@@ -25,14 +34,11 @@ export default function Home() {
   }, []);
   return (
     <div className="flex flex-col">
+      <div
+        id="blob"
+        className="absolute w-[50vh] h-[60vh] -z-10 rounded-full bg-primary -right-30 -bottom-60 blur-3xl"
+      ></div>
       <section className="p-8 mt-8">
-        <div
-          className={
-            isScrolled
-              ? "opacity-0"
-              : "absolute w-[50vh] h-[60vh] -z-10 rounded-full bg-primary -right-30 -bottom-60 blur-3xl transition-all duration-500 ease-in-out"
-          }
-        ></div>
         <h1 className="text-5xl font-bold">
           I'm Sahil, a passionate designer & curious developer
         </h1>
@@ -110,3 +116,7 @@ export default function Home() {
     </div>
   );
 }
+
+// isScrolled
+//               ? "opacity-0"
+//               : "absolute w-[50vh] h-[60vh] -z-10 rounded-full bg-primary -right-30 -bottom-60 blur-3xl transition-all duration-500 ease-in-out"
