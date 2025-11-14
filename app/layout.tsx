@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Roboto, Montserrat } from "next/font/google";
+import {  Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import { Analytics } from "@vercel/analytics/next"
 
 
 const montserrat = Montserrat({
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.className} antialiased flex flex-col`}>
+        <Analytics/>
         <Navbar />
         {children}
       </body>
