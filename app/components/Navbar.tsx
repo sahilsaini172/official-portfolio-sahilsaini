@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <header className="sticky bg-transparent p-8 flex items-center justify-between">
       <div></div>
-      <nav className="flex items-center gap-4">
+      <nav className="flex items-center gap-4 2xl:text-2xl 2xl:gap-16 *:2xl:font-semibold xl:text-xl xl:gap-7 *:xl:font-medium lg:text-lg lg:gap-6">
         <Link
           href={"pages/work"}
           className="hover:text-primary hover:scale-110 ease-in duration-100"

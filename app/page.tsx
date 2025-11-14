@@ -1,107 +1,97 @@
-"use client";
-import { animate, cubicBezier } from "animejs";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import BlogCard from "./components/BlogCard";
+import ProjectCard from "./components/ProjectCard";
 
 export default function Home() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Change class after scrolling 100px
-      if (window.scrollY > 100) {
-        animate("#blob", {
-          opacity: { to: 0, duration: 500, delay: 0 },
-          ease: cubicBezier(0.7, 0.1,0.5,0.9)
-        });
-        setIsScrolled(true);
-      } else if (window.scrollY < 100) {
-        animate("#blob", {
-          opacity: { to: 100, duration: 500, delay: 0 },
-          ease: cubicBezier(0.7, 0.1,0.5,0.9)
-        });
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup listener on unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ease-in duration-300 relative overflow-hidden">
       <div
         id="blob"
-        className="absolute w-[50vh] h-[60vh] -z-10 rounded-full bg-primary -right-30 -bottom-60 blur-3xl"
+        className="absolute w-[40vh] h-[50vh] -z-3 rounded-full bg-[#833AB4] blur-3xl -right-30 top-30"
       ></div>
-      <section className="p-8 mt-8">
-        <h1 className="text-5xl font-bold">
+      <div
+        id="blob"
+        className="absolute w-[30vh] h-[20vh] -z-2 rounded-full bg-[#FD1D1D] blur-3xl right-20 top-50"
+      ></div>
+      <div
+        id="blob"
+        className="absolute w-[20vh] h-[30vh] -z-1 rounded-full bg-[#FCB045] blur-3xl top-50 right-30"
+      ></div>
+      <section className="p-8 mt-8 sm:p-16 lg:p-24 xl:p-32 2xl:p-64 lg:w-3/4 xl:w-2/3">
+        <h1 className="text-5xl lg:text-6xl 2xl:text-8xl font-bold">
           I'm Sahil, a passionate designer & curious developer
         </h1>
-        <p className="text-lg mt-8 ">
+        <p className="text-lg lg:text-xl xl:text-2xl 2xl:text-3xl lg:font-medium 2xl:font-semibold 2xl:leading-10 mt-8">
           Currently, I am crafting experiences at home with a strong focus on
           thoughtful and intuitive ideas.
         </p>
 
         <Link
           href="pages/about"
-          className="flex items-center gap-2 mt-8 font-medium text-lg"
+          className="flex items-center gap-2 mt-8 font-medium text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"
         >
           <p>More about me</p>
           <ArrowRight size={16} />
         </Link>
       </section>
-      <section className="flex flex-col mt-8 p-8">
+      <section className="flex flex-col mt-8 p-8 sm:p-16 lg:p-24 xl:p-32 2xl:p-64">
         <div className="flex flex-col gap-2 mb-8">
-          <h2 className="text-xs text-primary font-black">A TINY GLIMSE</h2>
-          <p className="font-bold text-2xl">Projects</p>
-        </div>
-        <div className="grid grid-cols-1 grid-rows-1">
-          <article className="flex flex-col">
-            <div className="w-full aspect-video bg-[#bde0fe] rounded-lg hover:scale-103 delay-75 duration-150 ease-in"></div>
-            <div className="flex flex-col gap-2 mt-4">
-              <h2 className="text-sm text-primary font-black">Title</h2>
-              <p className="text-2xl line-clamp-2 font-bold">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic
-                officiis nesciunt deserunt inventore quam provident, alias
-                voluptas soluta reprehenderit quaerat natus. Harum odit vel
-                reprehenderit? Sunt neque veritatis quisquam repudiandae?
-              </p>
-            </div>
-            <Link
-              href="pages/work"
-              className="flex items-center gap-2 mt-10 font-medium text-lg hover:text-primary duration-150 ease-in"
-            >
-              <p>View Projects</p>
-              <ArrowRight size={16} />
-            </Link>
-          </article>
-        </div>
-      </section>
-      <section className="flex flex-col mt-8 p-8">
-        <h2 className="text-xs text-primary font-black">WRITING</h2>
-        <article className="flex flex-col py-8 gap-2">
-          <h3 className="font-bold text-2xl">Title</h3>
-          <p className="line-clamp-2 font-medium">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
-            aliquam consectetur fugit dolores nemo voluptas? Quae, maxime!
-            Voluptates esse, pariatur et delectus sapiente enim nostrum. Porro
-            quisquam optio debitis nesciunt?
+          <h2 className="text-xs md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-primary font-black">
+            A TINY GLIMSE
+          </h2>
+          <p className="font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl ">
+            Projects
           </p>
-        </article>
+        </div>
+        <div className="grid grid-cols-1 grid-rows-1 sm:grid-cols-2 sm:grid-rows-2 gap-8 md:gap-10 lg:gap-12 xl:gap-14 2xl:gap-16">
+          <ProjectCard
+            url="ologvisualizer.png"
+            title="oLogVisualizer"
+            description="An interactive web tool that visualizes O(log n) algorithmic complexity and Big O notation concepts through graphical representations."
+          />
+          <ProjectCard
+            url="twitter.png"
+            title="twitterX Clone"
+            description="A responsive Twitter/X clone built with HTML, Tailwind CSS, and React featuring core social media functionalities like posting, following, and user interactions.​"
+            color="#FFF2C6"
+          />
+          <ProjectCard
+            url="ologvisualizer.png"
+            title="oLogVisualizer"
+            description="An interactive web tool that visualizes O(log n) algorithmic complexity and Big O notation concepts through graphical representations."
+          />
+          <ProjectCard
+            url="twitter.png"
+            title="twitterX Clone"
+            description="A responsive Twitter/X clone built with HTML, Tailwind CSS, and React featuring core social media functionalities like posting, following, and user interactions.​"
+            color="#FFF2C6"
+          />
+        </div>
         <Link
           href="pages/work"
-          className="flex items-center gap-2 font-medium text-lg hover:text-primary duration-150 ease-in"
+          className="flex items-center gap-2 mt-10 font-medium text-lg lg:text-xl xl:text-2xl 2xl:text-3xl hover:text-primary duration-150 ease-in"
+        >
+          <p>View Projects</p>
+          <ArrowRight size={16} />
+        </Link>
+      </section>
+      <section className="flex flex-col mt-8 p-8 sm:p-16 lg:p-24 xl:p-32 2xl:p-64 xl:w-2/3">
+        <h2 className="text-xs md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-primary font-black">
+          WRITING
+        </h2>
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <Link
+          href="pages/work"
+          className="flex items-center gap-2 font-medium text-lg lg:text-xl xl:text-2xl 2xl:text-3xl hover:text-primary duration-150 ease-in"
         >
           <p>All Articles</p>
           <ArrowRight size={16} />
         </Link>
       </section>
-      <footer className="flex flex-col mt-8 p-8">
+      <footer className="flex flex-col mt-8 p-8 sm:p-16 lg:p-24 xl:p-32 2xl:p-64">
         <h3 className="text-3xl font-bold">Thanks for dropping by</h3>
         <p>
           For enquiries, get in touch via{" "}
@@ -116,7 +106,3 @@ export default function Home() {
     </div>
   );
 }
-
-// isScrolled
-//               ? "opacity-0"
-//               : "absolute w-[50vh] h-[60vh] -z-10 rounded-full bg-primary -right-30 -bottom-60 blur-3xl transition-all duration-500 ease-in-out"
