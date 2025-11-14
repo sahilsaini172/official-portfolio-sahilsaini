@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Roboto } from "next/font/google";
+import { Roboto, Montserrat } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
 
-const roboto = Roboto({
+
+const montserrat = Montserrat({
   variable: "--font-roboto",
-  subsets: ["greek"],
+  display: "swap",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -19,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} antialiased`}>{children}</body>
+      <body className={`${montserrat.className} antialiased flex flex-col`}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
