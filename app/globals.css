@@ -6,7 +6,21 @@
   --primary: #b32f12;
   --secondary: #bfbfbf;
   --tertiary: #333333;
+  --blob-1: #af7cce;
+  --blob-2: #ff8064;
+  --blob-3: #ffca85;
   --font-roboto: var(--font-roboto);
+}
+
+.dark {
+  --background: #0f0f0f;
+  --foreground: #e6e6e6;
+  --primary: #ae4a2f;
+  --secondary: #bfbfbf;
+  --tertiary: #333333;
+  --blob-1: #833ab4;
+  --blob-2: #fd1d1d;
+  --blob-3: #fcb045;
 }
 
 @theme inline {
@@ -15,16 +29,9 @@
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f0f0f;
-    --foreground: #e6e6e6;
-    --primary: #ae4a2f;
-    --secondary: #bfbfbf;
-    --tertiary: #333333;
-  }
+  --color-blob-1: var(--blob-1);
+  --color-blob-2: var(--blob-2);
+  --color-blob-3: var(--blob-3);
 }
 
 body {

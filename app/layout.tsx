@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} antialiased flex flex-col`}>
+      <body className={`${montserrat.className} antialiased flex flex-col **:ease-in **:duration-200`}>
         <Analytics/>
         <Navbar />
         {children}

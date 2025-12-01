@@ -1,10 +1,13 @@
-import Image from "next/image";
+import Link from "next/link";
 
 interface ProjectCardProps {
   url: string;
   title: string;
   description: string;
   color?: string;
+  classname?: string;
+  href?: string;
+  key?: string;
 }
 
 export default function ProjectCard({
@@ -12,22 +15,28 @@ export default function ProjectCard({
   title,
   description,
   color = "#bde0fe",
+  classname = "w-2/3",
+  href,
 }: ProjectCardProps) {
   return (
-    <article className="flex flex-col">
+    <Link href={`/work/${href}`} className="flex flex-col cursor-pointer">
       <div
         className={`w-full flex items-center justify-center aspect-video rounded-lg hover:scale-101 delay-75 duration-150 ease-in`}
         style={{ backgroundColor: color }}
       >
         <img
-          src={`/` + url}
-          className=" object-cover w-2/3 rounded-lg shadow-xl"
+          src={`/` + url + ".png"}
+          className={`object-cover ${classname} rounded-lg shadow-2xl`}
         />
       </div>
       <div className="flex flex-col gap-2 mt-4">
-        <h2 className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-primary font-black">{title}</h2>
-        <p className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl line-clamp-2 font-bold">{description}</p>
+        <h2 className="text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-primary font-black">
+          {title}
+        </h2>
+        <p className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl line-clamp-2 font-bold">
+          {description}
+        </p>
       </div>
-    </article>
+    </Link>
   );
 }
