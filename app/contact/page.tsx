@@ -11,6 +11,8 @@ export default function Contact() {
     "idle" | "loading" | "success" | "error"
   >("idle");
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -23,6 +25,7 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
+    setErrorMessage("");
 
     try {
       const response = await fetch("/api/contact", {
