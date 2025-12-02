@@ -9,6 +9,7 @@ export default function Work() {
           {projects.map((project) => (
             <ProjectCard
               key={project.slug}
+              slug={project.slug}
               title={project.title}
               description={project.description}
               url={project.slug}

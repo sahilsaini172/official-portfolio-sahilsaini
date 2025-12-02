@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface ProjectCardProps {
   url: string;
@@ -6,8 +7,7 @@ interface ProjectCardProps {
   description: string;
   color?: string;
   classname?: string;
-  href?: string;
-  key?: string;
+  slug: string; // Changed from href to slug for clarity
 }
 
 export default function ProjectCard({
@@ -16,16 +16,19 @@ export default function ProjectCard({
   description,
   color = "#bde0fe",
   classname = "w-2/3",
-  href,
+  slug,
 }: ProjectCardProps) {
   return (
-    <Link href={`/work/${href}`} className="flex flex-col cursor-pointer">
+    <Link href={`/work/${slug}`} className="flex flex-col cursor-pointer">
       <div
         className={`w-full flex items-center justify-center aspect-video rounded-lg hover:scale-101 delay-75 duration-150 ease-in`}
         style={{ backgroundColor: color }}
       >
-        <img
-          src={`/` + url + ".png"}
+        <Image
+          src={`/${url}.png`}
+          alt={title}
+          width={800}
+          height={600}
           className={`object-cover ${classname} rounded-lg shadow-2xl`}
         />
       </div>
