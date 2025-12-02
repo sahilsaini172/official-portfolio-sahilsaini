@@ -105,7 +105,7 @@ export async function POST(request: NextRequest) {
     // Send email with Resend
     const { data, error } = await resend.emails.send({
       from: "onboarding@resend.dev", // Change to your verified domain in production
-      to: ["sahilmanisaini8398l@gmail.com.com"], // Replace with your actual email
+      to: ["sahilmanisaini8398@gmail.com"], // Replace with your actual email
       subject: `New Contact Form: ${sanitizedName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
