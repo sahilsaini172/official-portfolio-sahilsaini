@@ -62,7 +62,7 @@ export default function Contact() {
           If you prefer, you can also just send me an{" "}
           <a
             href="mailto:sahilmanisaini8398@gmail.com"
-            className="underline hover:text-primary"
+            className="underline hover:text-primary decoration-primary"
           >
             e-mail
           </a>

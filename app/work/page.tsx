@@ -1,5 +1,6 @@
 import ProjectCard from "@/app/components/ProjectCard";
 import { projects } from "../data/projects";
+import Footer from "../components/Footer";
 
 export default function Work() {
   return (
@@ -18,6 +19,7 @@ export default function Work() {
           ))}
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

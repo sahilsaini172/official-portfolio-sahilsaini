@@ -3,6 +3,7 @@ import Link from "next/link";
 import BlogCard from "./components/BlogCard";
 import ProjectCard from "./components/ProjectCard";
 import { projects } from "./data/projects";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -29,11 +30,11 @@ export default function Home() {
         </p>
 
         <Link
-          href="pages/about"
-          className="flex items-center gap-2 mt-8 font-medium text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"
+          href="./about"
+          className="flex group hover:text-primary items-center gap-2 mt-8 font-medium text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"
         >
           <p>More about me</p>
-          <ArrowRight size={16} />
+          <ArrowRight size={16} className="group-hover:ml-1" />
         </Link>
       </section>
       <section className="flex flex-col mt-8 p-8 sm:p-16 lg:p-24 xl:p-32 2xl:p-64">
@@ -59,10 +60,10 @@ export default function Home() {
         </div>
         <Link
           href="pages/work"
-          className="flex items-center gap-2 mt-10 font-medium text-lg lg:text-xl xl:text-2xl 2xl:text-3xl hover:text-primary duration-150 ease-in"
+          className="flex group items-center gap-2 mt-10 font-medium text-lg lg:text-xl xl:text-2xl 2xl:text-3xl hover:text-primary duration-150 ease-in"
         >
           <p>View Projects</p>
-          <ArrowRight size={16} />
+          <ArrowRight size={16} className="group-hover:ml-1" />
         </Link>
       </section>
       <section className="flex flex-col mt-8 p-8 sm:p-16 lg:p-24 xl:p-32 2xl:p-64 xl:w-2/3">
@@ -78,29 +79,13 @@ export default function Home() {
         ))}
         <Link
           href="pages/work"
-          className="flex items-center gap-2 font-medium text-lg lg:text-xl xl:text-2xl 2xl:text-3xl hover:text-primary duration-150 ease-in"
+          className="flex group items-center gap-2 font-medium text-lg lg:text-xl xl:text-2xl 2xl:text-3xl hover:text-primary duration-150 ease-in"
         >
           <p>All Articles</p>
-          <ArrowRight size={16} />
+          <ArrowRight size={16} className="group-hover:ml-1" />
         </Link>
       </section>
-      <footer className="flex flex-col mt-8 p-8 sm:p-16 lg:p-24 xl:p-32 2xl:p-64">
-        <h3 className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold">
-          Thanks for dropping by
-        </h3>
-        <p className="lg:text-lg xl:text-xl 2xl:text-2xl">
-          For enquiries, get in touch via{" "}
-          <Link href={"pages/contact"}>contact</Link>
-          <br />
-          if you prefer, you can also say hello at{" "}
-          <a
-            className="hover:text-primary underline underline-offset-3 decoration-primary"
-            href="mailto:sahilmanisaini8398@gmail.com"
-          >
-            sahilmanisaini8398@gmail.com
-          </a>
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }
