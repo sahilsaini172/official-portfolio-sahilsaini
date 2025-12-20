@@ -1,19 +1,8 @@
 "use client";
 import Link from "next/link";
 import DarkModeToggle from "./ThemeToggle";
-import gsap from "gsap";
-import { useEffect } from "react";
 
 export default function Navbar() {
-  useEffect(() => {
-    var tl = gsap.timeline();
-    tl.from("#navitem", {
-      y: -500,
-      opacity: 0,
-      duration: 1.5,
-      stagger: 0.3,
-    });
-  });
   return (
     <header className="sticky bg-transparent p-8 flex items-center justify-between">
       <div></div>
