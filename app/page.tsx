@@ -47,7 +47,7 @@ export default function Home() {
           </p>
         </div>
         <div className="grid grid-cols-1 grid-rows-1 sm:grid-cols-2 sm:grid-rows-2 gap-8 md:gap-10 lg:gap-12 xl:gap-14 2xl:gap-16">
-          {projects.map((project) => (
+          {projects.slice(0, 4).map((project) => (
             <ProjectCard
               key={project.slug}
               slug={project.slug}

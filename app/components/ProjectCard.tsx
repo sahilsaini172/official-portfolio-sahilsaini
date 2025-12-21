@@ -2,12 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 interface ProjectCardProps {
-  url: string;
+  slug: string; // Changed from href to slug for clarity
   title: string;
+  url: string;
   description: string;
   color?: string;
   classname?: string;
-  slug: string; // Changed from href to slug for clarity
 }
 
 export default function ProjectCard({
