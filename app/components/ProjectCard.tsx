@@ -1,5 +1,11 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef, useState } from "react";
+
+gsap.registerPlugin(useGSAP);
 
 interface ProjectCardProps {
   slug: string; // Changed from href to slug for clarity
@@ -18,13 +24,54 @@ export default function ProjectCard({
   classname = "w-2/3",
   slug,
 }: ProjectCardProps) {
+  const containerRef = useRef(null);
+  const imageRef = useRef<HTMLImageElement | null>(null);
+
+  const { contextSafe } = useGSAP({ scope: containerRef });
+
+  const handleMouseEnter = contextSafe(() => {
+    if (!imageRef.current) return;
+
+    gsap.to(containerRef.current, {
+      border: "2px solid white",
+      duration: 0.1,
+    });
+
+    gsap.to(imageRef.current, {
+      scale: 1.2,
+      y: -40,
+      duration: 0.1,
+      border: "1px solid white",
+    });
+  });
+
+  const handleMouseLeave = contextSafe(() => {
+    if (!imageRef.current) return;
+
+    gsap.to(containerRef.current, {
+      duration: 0.2,
+      border: "0px solid white",
+    });
+
+    gsap.to(imageRef.current, {
+      scale: 1,
+      y: 0,
+      duration: 0.2,
+      border: "0px solid white",
+    });
+  });
+
   return (
     <Link href={`/work/${slug}`} className="flex flex-col cursor-pointer">
       <div
-        className={`w-full flex items-center justify-center aspect-video rounded-lg hover:scale-101 delay-75 duration-150 ease-in`}
+        ref={containerRef}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className={`w-full flex items-center justify-center aspect-video rounded-lg ease-in`}
         style={{ backgroundColor: color }}
       >
         <Image
+          ref={imageRef}
           src={`/${url}.png`}
           alt={title}
           width={800}

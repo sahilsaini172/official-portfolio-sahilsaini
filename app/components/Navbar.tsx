@@ -15,7 +15,7 @@ export default function Navbar() {
       gsap.from(itemsRef.current, {
         y: -100,
         opacity: 0,
-        delay:0.4,
+        delay: 0.4,
         stagger: 0.2,
         duration: 0.2,
         ease: "circ.in",
@@ -33,7 +33,7 @@ export default function Navbar() {
         {["Work", "About", "Blog", "Contact"].map((item, i) => (
           <div
             key={item}
-            className="hover:text-primary hover:scale-104"
+            className="hover:text-primary hover:scale-110 text-sm"
             ref={(el) => {
               if (el) itemsRef.current[i] = el;
             }}
@@ -43,6 +43,7 @@ export default function Navbar() {
         ))}
 
         <div
+          className="hover:text-primary hover:scale-110 text-sm cursor-pointer"
           ref={(el) => {
             if (el) itemsRef.current[4] = el;
           }}
