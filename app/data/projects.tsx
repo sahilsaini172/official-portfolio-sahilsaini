@@ -1,22 +1,22 @@
 // data/projects.ts
 
 export interface Project {
-  slug: string;
-  url?: string;
-  title: string;
-  description: string;
-  about?: string;
-  color?: string;
+    slug: string;
+    url?: string;
+    title: string;
+    description: string;
+    about?: string;
+    color?: string;
 }
 
 export const projects: Project[] = [
-  {
-    slug: "leetchamp",
-    title: "LeetChamp",
-    url: `https://leet-champ.vercel.app/`,
-    description:
-      "A responsive Twitter/X clone built with HTML, Tailwind CSS, and React featuring core social media functionalities like posting, following, and user interactions.​",
-    about: `<p class="text-lg leading-relaxed">
+    {
+        slug: "leetchamp",
+        title: "LeetChamp",
+        url: `https://leet-champ.vercel.app/`,
+        description:
+            "A responsive Twitter/X clone built with HTML, Tailwind CSS, and React featuring core social media functionalities like posting, following, and user interactions.​",
+        about: `<p class="text-lg leading-relaxed">
     Every developer who has prepared for technical interviews knows the struggle: staring at LeetCode problems, trying to understand why an algorithm works, tracing through code line by line, and still feeling uncertain about what's actually happening under the hood. I built <strong class="font-semibold">LeetChamp</strong> to bridge that gap between reading algorithmic concepts and truly understanding them.
   </p>
 
@@ -119,13 +119,13 @@ export const projects: Project[] = [
     LeetChamp demonstrates my ability to conceptualize a technical problem, architect a solution, and execute it with production-quality code and design—skills essential for any frontend or full-stack developer role.
   </p>
 `,
-    color: "#f8edeb",
-  },
-  {
-    slug: "ologvisualizer",
-    title: "O-Log Visualizer",
-    url: `https://o-log-visualizer.vercel.app/`,
-    about: `
+        color: "#f8edeb",
+    },
+    {
+        slug: "ologvisualizer",
+        title: "O-Log Visualizer",
+        url: `https://o-log-visualizer.vercel.app/`,
+        about: `
   <p class="text-lg leading-relaxed">
     Understanding Big O notation is one of the most critical yet challenging concepts for developers learning algorithms and data structures. You can memorize that binary search is O(log n) or that bubble sort is O(n²), but without seeing how these complexities actually behave with real data, the notation remains abstract. I built <strong class="font-semibold">O-Log Visualizer</strong> to transform this abstract mathematical concept into an interactive, visual experience that makes algorithmic complexity intuitive.
   </p>
@@ -270,15 +270,104 @@ export const projects: Project[] = [
     This project demonstrates my ability to identify educational gaps, architect technical solutions, and execute polished implementations—skills essential for creating impactful developer tools and user-facing applications.
   </p>
 `,
-    description:
-      "An interactive web tool that visualizes O(log n) algorithmic complexity and Big O notation concepts through graphical representations.",
-    color: "#fcd5ce",
-  },
-  {
-    slug: "officialportfolio",
-    title: "Official Portfolio",
-    url: `https://official-portfolio-sahilsaini.vercel.app/`,
-    about: `<p class="text-lg leading-relaxed">
+        description:
+            "An interactive web tool that visualizes O(log n) algorithmic complexity and Big O notation concepts through graphical representations.",
+        color: "#fcd5ce",
+    },
+    {
+        slug: "macbook",
+        title: "Macbook Pro Store",
+        url: `https://macbook-pro-store.vercel.app/`,
+        about: `<h2 class="text-3xl font-bold mt-12 mb-4">
+  Why a 3D Store?
+</h2>
+
+<p class="text-lg leading-relaxed mb-4">
+  Standard product pages often fail to convey the physical elegance of premium hardware. By integrating a real-time 3D environment, this project allows users to inspect the MacBook Pro from every angle, offering a level of engagement that static images simply cannot match. It bridges the gap between digital browsing and physical retail.
+</p>
+
+<p class="text-lg leading-relaxed">
+  This project was a deep dive into WebGL performance, focusing on how to render high-fidelity models without compromising load times or scroll smoothness on lower-end devices.
+</p>
+
+<h2 class="text-3xl font-bold mt-12 mb-4">
+  Technical Architecture
+</h2>
+
+<p class="text-lg leading-relaxed mb-4">
+  I designed the architecture to handle heavy graphical computation while maintaining a fluid UI:
+</p>
+
+<ul class="space-y-3 text-lg list-disc list-inside ml-4">
+  <li><strong class="font-semibold">3D Engine</strong>: React Three Fiber (R3F) and Drei for declarative Three.js scenes</li>
+  <li><strong class="font-semibold">Animations</strong>: GSAP (GreenSock) for precise, scroll-triggered camera movements and timeline control</li>
+  <li><strong class="font-semibold">State Management</strong>: Zustand for handling color configuration and camera states without prop drilling</li>
+  <li><strong class="font-semibold">Styling</strong>: Tailwind CSS for the UI overlay and responsive layout adjustments</li>
+  <li><strong class="font-semibold">Performance</strong>: Draco compression for 3D assets and lazy loading for non-critical textures</li>
+</ul>
+
+<p class="text-lg leading-relaxed mt-4">
+  The core challenge was synchronizing the DOM (HTML overlay) with the WebGL canvas. I implemented a custom coordinate system to ensure text elements scroll in perfect harmony with the 3D model's rotation and transformation.
+</p>
+
+<h2 class="text-3xl font-bold mt-12 mb-4">
+  Core Features
+</h2>
+
+<p class="text-lg leading-relaxed mb-4">
+  <strong class="font-semibold">Scroll-Driven Animation</strong>: As users scroll, the MacBook Pro smoothly rotates, opens, and disassembles to reveal internal components. This "scrollytelling" approach guides the user through the product story at their own pace.
+</p>
+
+<p class="text-lg leading-relaxed mb-4">
+  <strong class="font-semibold">Interactive Configurator</strong>: Users can toggle between different finishes (Space Gray, Silver) in real-time. The material shaders update instantly, preserving realistic lighting and reflections without reloading the model.
+</p>
+
+<p class="text-lg leading-relaxed mb-4">
+  <strong class="font-semibold">Dynamic Lighting</strong>: The scene utilizes physically based rendering (PBR) with environment maps to create realistic reflections on the aluminum chassis, shifting dynamically as the user rotates the view.
+</p>
+
+<h2 class="text-3xl font-bold mt-12 mb-4">
+  Design and User Experience
+</h2>
+
+<p class="text-lg leading-relaxed mb-4">
+  Inspired by Apple's minimalist aesthetic, the UI is designed to recede, letting the product take center stage. Typography is crisp and spacious, using large headers to punctuate the visual journey. The "Buy Now" and configuration UI elements use glassmorphism effects to float above the 3D scene without obstructing it.
+</p>
+
+<h2 class="text-3xl font-bold mt-12 mb-4">
+  Technical Challenges and Solutions
+</h2>
+
+<p class="text-lg leading-relaxed mb-4">
+  <strong class="font-semibold">Model Optimization</strong>: The initial CAD model was too heavy for web use. I used Blender to retopologize the mesh and bake high-resolution textures, reducing the file size by 90% while maintaining visual fidelity using Draco compression.
+</p>
+
+<p class="text-lg leading-relaxed mb-4">
+  <strong class="font-semibold">Canvas Responsiveness</strong>: 3D scenes often break on mobile screens. I implemented a dynamic camera rig that adjusts the field of view (FOV) and model position based on the viewport width, ensuring the MacBook looks perfect on both mobile phones and ultrawide monitors.
+</p>
+
+<h2 class="text-3xl font-bold mt-12 mb-4">
+  Key Learning Outcomes
+</h2>
+
+<p class="text-lg leading-relaxed mb-4">
+  Building this 3D experience refined my skills in creative engineering:
+</p>
+
+<ul class="space-y-3 text-lg list-disc list-inside ml-4">
+  <li><strong class="font-semibold">WebGL Proficiency</strong>: Understanding shaders, lighting models, and the 3D rendering pipeline</li>
+  <li><strong class="font-semibold">Performance Tuning</strong>: Mastering the use of \`useFrame\` loops and avoiding layout thrashing in 3D scenes</li>
+  <li><strong class="font-semibold">Creative Coding</strong>: Learning to blend mathematical precision with artistic timing to create "delightful" interactions</li>
+</ul>
+`,
+        description: `Modern e-commerce is shifting from static imagery to immersive, interactive experiences. I built this <strong class="font-semibold">3D MacBook Pro Store</strong> to push the boundaries of web-based product visualization, combining the power of React Three Fiber with the performance of Next.js to create a showroom-quality experience directly in the browser.`,
+        color: "#bfc1ce",
+    },
+    {
+        slug: "officialportfolio",
+        title: "Official Portfolio",
+        url: `https://official-portfolio-sahilsaini.vercel.app/`,
+        about: `<p class="text-lg leading-relaxed">
     A portfolio website is more than just a collection of projects—it's a reflection of your skills, personality, and approach to problem-solving. I built my <strong class="font-semibold">personal portfolio</strong> to showcase not only what I've created, but how I think about design, user experience, and modern web development. This project represents the intersection of my UI/UX design background and frontend engineering expertise.
   </p>
 
@@ -427,17 +516,17 @@ export const projects: Project[] = [
     This portfolio represents more than technical skills—it demonstrates my ability to think holistically about digital products, balancing aesthetics, performance, usability, and business goals. It's a testament to my commitment to craft and continuous improvement, qualities I bring to every project I work on.
   </p>
 `,
-    description:
-      "Frontend developer specializing in React, Next.js, and modern web technologies with 2+ years of UI/UX design experience. I create fast, interactive applications that blend algorithmic problem-solving with thoughtful design. Currently building educational tools and visualization platforms to help developers master data structures and algorithms",
-    color: "#fec89a",
-  },
-  {
-    slug: "kickgamecl",
-    title: "Kick Game",
-    url: `https://kick-game-cl.vercel.app/`,
-    description: `Kick Game is one of the UK's premier destinations for exclusive, rare, and collectable sneakers from brands like Nike, Jordan, Yeezy, and Off-White.`,
-    color: "#dfcff3",
-    about: `
+        description:
+            "Frontend developer specializing in React, Next.js, and modern web technologies with 2+ years of UI/UX design experience. I create fast, interactive applications that blend algorithmic problem-solving with thoughtful design. Currently building educational tools and visualization platforms to help developers master data structures and algorithms",
+        color: "#fec89a",
+    },
+    {
+        slug: "kickgamecl",
+        title: "Kick Game",
+        url: `https://kick-game-cl.vercel.app/`,
+        description: `Kick Game is one of the UK's premier destinations for exclusive, rare, and collectable sneakers from brands like Nike, Jordan, Yeezy, and Off-White.`,
+        color: "#dfcff3",
+        about: `
   <h2 class="text-3xl font-bold mb-4">
     Why Clone a Premium Sneaker Store?
   </h2>
@@ -593,12 +682,12 @@ export const projects: Project[] = [
     The Kick Game Clone showcases not just technical proficiency, but my understanding of e-commerce user psychology, visual merchandising, and the delicate balance between aesthetics and functionality that drives successful online retail experiences.
   </p>
 `,
-  },
-  {
-    slug: "twitter",
-    title: "Twitter Clone",
-    url: `https://twitterxclonee.netlify.app/`,
-    about: `<p class="text-lg leading-relaxed">
+    },
+    {
+        slug: "twitter",
+        title: "Twitter Clone",
+        url: `https://twitterxclonee.netlify.app/`,
+        about: `<p class="text-lg leading-relaxed">
     Social media platforms like Twitter represent some of the most complex frontend challenges in web development—real-time updates, dynamic user interactions, responsive layouts, and seamless state management. I built this <strong class="font-semibold">Twitter Clone</strong> to demonstrate my ability to recreate a production-grade social platform while mastering modern React patterns and responsive design principles.
   </p>
 
@@ -742,8 +831,8 @@ export const projects: Project[] = [
   <p class="text-lg leading-relaxed mt-4">
     The Twitter Clone showcases not just my technical skills, but my attention to detail, commitment to quality, and ability to recreate complex user experiences—all essential qualities for frontend and full-stack development roles.
   </p>`,
-    description:
-      "A responsive Twitter/X clone built with HTML, Tailwind CSS, and React featuring core social media functionalities like posting, following, and user interactions.​",
-    color: "#f49595",
-  },
+        description:
+            "A responsive Twitter/X clone built with HTML, Tailwind CSS, and React featuring core social media functionalities like posting, following, and user interactions.​",
+        color: "#f49595",
+    },
 ];

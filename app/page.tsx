@@ -1,13 +1,13 @@
 "use client";
-import { ArrowRight } from "lucide-react";
+import {ArrowRight} from "lucide-react";
 import Link from "next/link";
 import BlogCard from "./components/BlogCard";
 import ProjectCard from "./components/ProjectCard";
-import { projects } from "./data/projects";
+import {projects} from "./data/projects";
 import Footer from "./components/Footer";
-import { useRef, useState } from "react";
+import {useRef, useState} from "react";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import {useGSAP} from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
@@ -21,7 +21,7 @@ export default function Home() {
     () => {
       gsap.fromTo(
         aboutSnippetRef.current,
-        { scale: 1, rotate: 7, delay: 0.2, x: 0, opacity: 0 },
+        {scale: 1, rotate: 7, delay: 0.2, x: 0, opacity: 0},
         {
           x: 200,
           opacity: 1,
@@ -30,7 +30,7 @@ export default function Home() {
         }
       );
     },
-    { scope: container, dependencies: [showAbout] }
+    {scope: container, dependencies: [showAbout]}
   );
 
   function handleAboutEnter() {
@@ -52,7 +52,8 @@ export default function Home() {
       ref={container}
       className="flex flex-col ease-in duration-300 relative overflow-hidden"
     >
-      <div className="absolute blob w-[40vh] h-[50vh] -z-3 rounded-full bg-blob-1 blur-3xl -right-30 top-30"></div>
+      <div
+        className="absolute blob w-[40vh] h-[50vh] -z-3 rounded-full bg-blob-1 blur-3xl -right-30 top-30"></div>
       <div className="absolute blob w-[30vh] h-[20vh] -z-2 rounded-full bg-blob-2 blur-3xl right-20 top-50"></div>
       <div className="absolute blob w-[20vh] h-[30vh] -z-1 rounded-full bg-blob-3 blur-3xl top-50 right-30"></div>
       <section className="p-8 mt-8 sm:p-16 lg:p-24 xl:p-32 2xl:p-64 lg:w-3/4 xl:w-2/3">
@@ -71,7 +72,7 @@ export default function Home() {
           className="flex relative group hover:text-primary items-center gap-2 mt-8 font-medium text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"
         >
           <p>More about me</p>
-          <ArrowRight size={16} className="group-hover:ml-1" />
+          <ArrowRight size={16} className="group-hover:ml-1"/>
           {showAbout ? (
             <img
               ref={aboutSnippetRef}
@@ -107,11 +108,11 @@ export default function Home() {
           ))}
         </div>
         <Link
-          href="pages/work"
+          href="/work"
           className="flex group items-center gap-2 mt-10 font-medium text-lg lg:text-xl xl:text-2xl 2xl:text-3xl hover:text-primary duration-150 ease-in"
         >
           <p>View Projects</p>
-          <ArrowRight size={16} className="group-hover:ml-1" />
+          <ArrowRight size={16} className="group-hover:ml-1"/>
         </Link>
       </section>
       <section className="flex flex-col mt-8 p-8 sm:p-16 lg:p-24 xl:p-32 2xl:p-64 xl:w-2/3">
@@ -126,14 +127,14 @@ export default function Home() {
           />
         ))}
         <Link
-          href="pages/work"
+          href="/blog"
           className="flex group items-center gap-2 font-medium text-lg lg:text-xl xl:text-2xl 2xl:text-3xl hover:text-primary duration-150 ease-in"
         >
           <p>All Articles</p>
-          <ArrowRight size={16} className="group-hover:ml-1" />
+          <ArrowRight size={16} className="group-hover:ml-1"/>
         </Link>
       </section>
-      <Footer />
+      <Footer/>
     </div>
   );
 }
