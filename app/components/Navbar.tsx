@@ -1,41 +1,52 @@
 "use client";
+
 import Link from "next/link";
 import DarkModeToggle from "./ThemeToggle";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 
 export default function Navbar() {
+  const navRef = useRef<HTMLDivElement | null>(null);
+  const itemsRef = useRef<HTMLDivElement[]>([]);
+
+  useGSAP(
+    () => {
+      gsap.from(itemsRef.current, {
+        y: -100,
+        opacity: 0,
+        delay:0.4,
+        stagger: 0.2,
+        duration: 0.2,
+        ease: "circ.in",
+        clearProps: "all",
+      });
+    },
+    { scope: navRef }
+  );
+
   return (
-    <header className="sticky bg-transparent p-8 flex items-center justify-between">
-      <div></div>
-      <nav className="flex items-center gap-4 2xl:text-2xl 2xl:gap-16 *:2xl:font-semibold xl:text-xl xl:gap-7 *:xl:font-medium lg:text-lg lg:gap-6">
-        <Link
-          href={"/work"}
-          id="navitem"
-          className="hover:text-primary hover:scale-110 w-fit"
+    <header className="sticky top-0 p-8 flex z-100 justify-between">
+      <div />
+
+      <nav ref={navRef} className="flex gap-6 text-lg">
+        {["Work", "About", "Blog", "Contact"].map((item, i) => (
+          <div
+            key={item}
+            className="hover:text-primary hover:scale-104"
+            ref={(el) => {
+              if (el) itemsRef.current[i] = el;
+            }}
+          >
+            <Link href={`/${item.toLowerCase()}`}>{item}</Link>
+          </div>
+        ))}
+
+        <div
+          ref={(el) => {
+            if (el) itemsRef.current[4] = el;
+          }}
         >
-          Work
-        </Link>
-        <Link
-          id="navitem"
-          href={"/about"}
-          className="hover:text-primary hover:scale-110 w-fit"
-        >
-          About
-        </Link>
-        <Link
-          id="navitem"
-          href={"/blog"}
-          className="hover:text-primary hover:scale-110 "
-        >
-          Blog
-        </Link>
-        <Link
-          id="navitem"
-          href={"/contact"}
-          className="hover:text-primary hover:scale-110 "
-        >
-          Contact
-        </Link>
-        <div className="hover:text-primary hover:scale-110 ease-in duration-100 cursor-pointer">
           <DarkModeToggle />
         </div>
       </nav>

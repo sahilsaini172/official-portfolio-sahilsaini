@@ -29,7 +29,7 @@ export default function ProjectCard({
           alt={title}
           width={800}
           height={600}
-          className={`object-cover ${classname} rounded-lg shadow-2xl`}
+          className={`object-cover ${classname} rounded-lg shadow-2xl w-2/3`}
         />
       </div>
       <div className="flex flex-col gap-2 mt-4">
